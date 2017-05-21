@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+  </head>
+  <body class="bod">
+    <div class="one">
+      <div class="two">
+        <div class="three"></div>
+      </div>
+    </div>
+    <script>
+      const divs = document.querySelectorAll('div');
+
+      function logText() {
+        console.log(this.classList.value);
+      }
+
+      divs.forEach(div => div.addEventListener('click', logText, {
+        capture: false, // only bottom up
+        once: true      // unbinds event listener after handling once
+      }));
+    </script>
+    <style>
+      :root {
+        font: 200 10px Futura, 'Open Sans', sans-serif;
+      }
+
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after { box-sizing: inherit; }
+
+      body {
+        margin: 0;
+      }
+
+      div {
+        width: 100%;
+        padding: 100px;
+      }
+
+      .one {
+        background: thistle;
+      }
+
+      .two {
+        background: mistyrose;
+      }
+
+      .three {
+        background: coral;
+      }
+    </style>
+  </body>
+</html>
